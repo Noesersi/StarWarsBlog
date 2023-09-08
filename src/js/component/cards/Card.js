@@ -6,11 +6,13 @@ import { Link } from "react-router-dom";
 import useAppContext from "../../../context/AppContext";
 
 const Card = ({ uid, targetResource, ...item }) => {
-
-  const {store: { favorites }, actions: { addToFavorites, removeFromFavorites }} = useAppContext();
-  const isFavorite = favorites.some(items => items.name === item.name);
-
-
+  const {
+    store: { favorites },
+    actions: { addToFavorites, removeFromFavorites },
+  } = useAppContext();
+  const isFavorite = Boolean(
+    favorites?.some((items) => items.name === item.name)
+  );
 
   return (
     <div className="card" style={{ minWidth: "18rem" }}>
@@ -24,20 +26,22 @@ const Card = ({ uid, targetResource, ...item }) => {
           <Link to={`/${uid}`} className="btn btn-primary">
             Learn More about {item.name} !
           </Link>
-          {/* <button type="button" 
-          className="ms-auto btn" 
-          onClick={ 
-            isFavorite 
-            ? () => removeFromFavorites(uid) 
-            : addToFavorites(uid, name)
-          }
+          <button
+          
+            type="button"
+            className="ms-auto btn"
+            onClick={
+              isFavorite
+                ? () => removeFromFavorites(uid, item.name)
+                : () => addToFavorites(uid, item.name)
+            }
           >
             {isFavorite ? (
               <i className="fa-solid fa-heart"></i>
-              ) : (
-                <i className="fa-regular fa-heart"></i>
-                )}
-          </button> */}
+            ) : (
+              <i className="fa-regular fa-heart"></i>
+            )}
+          </button>
         </div>
       </div>
     </div>
@@ -45,7 +49,6 @@ const Card = ({ uid, targetResource, ...item }) => {
 };
 
 export default Card;
-
 
 // gender={item.gender} birth_year={item.birth_year}
 // population={item.population} climate={item.climate}

@@ -4,29 +4,41 @@ import { Link, useParams } from "react-router-dom";
 import useAppContext from "../../context/AppContext";
 
 
-import "../../styles/demo.css";
+
 
 export const DetailPage = () => {
 
 	const params = useParams();
 	const { store } = useAppContext();	
-	const {people, planets, vehicles} = store;
+	const {people, planets, vehicles, isLoading} = store;
+	
+	if (isLoading) {
+		return (
+		  <div className="d-flex justify-content-center">
+			<div className="spinner-border" role="status">
+			  <span className="visually-hidden">Loading...</span>
+			</div>
+		  </div>
+		);
+	  }
+	
 	const allResources = [...people, ...planets, ...vehicles];
 	const targetResource = allResources.find(items => items.uid == params.uid)
-	console.log( "targetresource", targetResource)
-	console.log( "allresources", allResources)
-
-	
-	
 	
 	return (
 		<div className="container">
-			
-			{targetResource.name}
-			<br />
-			<Link to="/">
+		  {targetResource ? (
+			<div>
+				
+			  {targetResource.name}
+			  <br />
+			  <Link to="/">
 				<button className="btn btn-primary">Back home</button>
-			</Link>
+			  </Link>
+			</div>
+		  ) : (
+			<p>Loading...</p>
+		  )}
 		</div>
-	);
+	  );
 };
