@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
-import PeopleDetail from "./PlanetsDetail";
+import PeopleDetail from "./PeopleDetail";
 import PlanetsDetail from "./PlanetsDetail";
 import StarshipsDetail from "./starshipDetail";
 import useAppContext from "../../../context/AppContext";
@@ -9,7 +9,7 @@ export const DetailPage = () => {
   const params = useParams();
   const { store } = useAppContext();
   const { people, planets, vehicles, isLoading } = store;
-  console.log("target", targetResource);
+  
 
   if (isLoading) {
     return (
@@ -39,7 +39,7 @@ export const DetailPage = () => {
     <div className="container">
       <div className="card">
         {targetResource ? (
-          <div>
+          <div className="divImage"> 
             <h2 className="p-2">{targetResource.name}</h2>
             {resourceType === "people" && <PeopleDetail {...targetResource} />}
             {resourceType === "starships" && (
@@ -52,7 +52,7 @@ export const DetailPage = () => {
             <br />
             <div className="card-body">
               <Link to="/">
-                <button className="btn btn-primary">Back home</button>
+                <button className="btn btn-primary ml-auto">Back home</button>
               </Link>
             </div>
           </div>

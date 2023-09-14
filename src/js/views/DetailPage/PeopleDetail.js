@@ -1,9 +1,15 @@
 import React from "react";
-const PeopleDetail= ({ ...targetResource }) => {
+import "/workspaces/StarWarsBlog/src/styles/detailCard.css";
+
+const PeopleDetail = ({ ...targetResource }) => {
   return (
-    
-    <>
-      <img src="https://freepngimg.com/thumb/star_wars/23261-6-star-wars-characters-photos.png" className="card-img-top" alt="..." />
+    <div className="container divImage">
+      <img
+        src="https://freepngimg.com/thumb/star_wars/23261-6-star-wars-characters-photos.png"
+        className="cardDetailImg card-img-top object-fit-cover"
+        alt="..."
+      />
+      <div/>
       <div className="card-body">
         <h5 className="card-title">{targetResource?.name}</h5>
         <p className="card-text">
@@ -20,7 +26,7 @@ const PeopleDetail= ({ ...targetResource }) => {
           <strong>Birth Year:</strong> {targetResource.birth_year}
         </li>
       </ul>
-    </>
+    </div>
   );
 };
 

@@ -1,12 +1,17 @@
 import React from "react";
+import "/workspaces/StarWarsBlog/src/styles/detailCard.css"
+
 const PlanetsDetail = ({ ...targetResource }) => {
   return (
     <>
-      <img
+    <div className="container d-flex justify-content-center align-items-center"> 
+    <img
         src="https://img.freepik.com/free-photo/glowing-spaceship-orbits-planet-starry-galaxy-generated-by-ai_188544-9655.jpg?w=1380&t=st=1694607032~exp=1694607632~hmac=9e8f81fc90844fe6ba305cb02413a40005233ec7150ba46ae5c91c3c89e03ce1"
-        className="card-img-top object-fit-cover"
+        className="cardDetailImg card-img-top object-fit-cover"
         alt="..."
       />
+      </div>
+      
       <div className="card-body">
         <h5 className="card-title">{targetResource?.name}</h5>
         <p className="card-text">
