@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useAppContext from "../../context/AppContext";
-import "/workspaces/StarWarsBlog/src/styles/navbar.css";
+import "../../styles/navbar.css";
 
 export const Navbar = () => {
   const {

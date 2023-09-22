@@ -1,5 +1,5 @@
 import React from "react";
-import "/workspaces/StarWarsBlog/src/styles/detailCard.css";
+import "../../../styles/detailCard.css";
 
 const PeopleDetail = ({ ...targetResource }) => {
   return (
