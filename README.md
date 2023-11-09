@@ -1,5 +1,4 @@
-# WebApp boilerplate with React JS
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io#https://github.com/4GeeksAcademy/react-hello-webapp.git)
+# Star Wars Blog
 
 <p align="center">
 This is my Star Wars Blog, a proyect that belong to the Full Stack course of 4 Geeks Academy.
