@@ -4,6 +4,7 @@ import PeopleDetail from "./PeopleDetail";
 import PlanetsDetail from "./PlanetsDetail";
 import StarshipsDetail from "./starshipDetail";
 import useAppContext from "../../../context/AppContext";
+import "../../../styles/cardStyle.css"
 
 export const DetailPage = () => {
   const params = useParams();
@@ -52,7 +53,7 @@ export const DetailPage = () => {
             <br />
             <div className="card-body">
               <Link to="/">
-                <button className="btn btn-primary ml-auto">Back home</button>
+                <button className="generalButton ml-auto">Back home</button>
               </Link>
             </div>
           </div>

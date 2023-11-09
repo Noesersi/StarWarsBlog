@@ -24,7 +24,7 @@ export const Navbar = () => {
       <div className="ms-auto">
         <div className="dropdown">
           <button
-            className="customBtn btn btn-primary dropdown-toggle mx-5 my-3"
+            className="customBtn favoriteButton dropdown-toggle mx-5 my-3"
             type="button"
             data-bs-toggle="dropdown"
             data-bs-auto-close="outside"

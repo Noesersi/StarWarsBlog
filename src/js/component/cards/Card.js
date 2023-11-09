@@ -4,6 +4,8 @@ import PeopleCard from "./PeopleCard";
 import StarshipsCard from "./StarshipCard";
 import { Link } from "react-router-dom";
 import useAppContext from "../../../context/AppContext";
+import "../../../styles/cardStyle.css"
+
 
 const Card = ({ uid, targetResource, ...item }) => {
   const {
@@ -22,26 +24,20 @@ const Card = ({ uid, targetResource, ...item }) => {
           {targetResource === "planets" && <PlanetsCard {...item} />}
           {targetResource === "vehicles" && <StarshipsCard {...item} />}
         </div>
-        <div className="d-flex justify-between">
-          <Link to={`/${uid}`} className="btn btn-primary">
+        <div className="d-flex justify-content-between">
+          <Link to={`/${uid}`} className="btn generalButton">
             Learn More about {item.name} !
           </Link>
-          <button
-          
-            type="button"
-            className="ms-auto btn"
-            onClick={
-              isFavorite
-                ? () => removeFromFavorites(uid, item.name)
-                : () => addToFavorites(uid, item.name)
-            }
-          >
-            {isFavorite ? (
-              <i className="fa-solid fa-heart"></i>
-            ) : (
-              <i className="fa-regular fa-heart"></i>
-            )}
-          </button>
+            <div
+              className={`btn ms-auto ${isFavorite ? "favorite-button-active" : "favorite-button-inactive"}`}
+              onClick={
+                isFavorite
+                  ? () => removeFromFavorites(uid, item.name)
+                  : () => addToFavorites(uid, item.name)
+              }
+            >
+              {isFavorite ? <i className="fa-solid fa-heart"></i> : <i className="fa-regular fa-heart"></i>}
+            </div>
         </div>
       </div>
     </div>
@@ -50,6 +46,3 @@ const Card = ({ uid, targetResource, ...item }) => {
 
 export default Card;
 
-// gender={item.gender} birth_year={item.birth_year}
-// population={item.population} climate={item.climate}
-// cargo_capacity={item.cargo_capacity} vehicle_class={item.vehicle_class}
